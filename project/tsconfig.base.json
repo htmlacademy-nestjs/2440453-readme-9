@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@project/authentication": ["libs/user/authentication/src/index.ts"],
+      "@project/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@project/shared-types": ["libs/shared/shared-types/src/index.ts"],
+      "@project/user-info": ["libs/user/user-info/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

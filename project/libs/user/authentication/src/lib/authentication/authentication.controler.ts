@@ -1,12 +1,12 @@
 import { Body, Controller, Get, Post } from "@nestjs/common";
-import { createUserDto } from "./dto/create-user.dto";
-import { changeUserPassword } from "./dto/change-user-password.dto";
-import { loginUserDto } from "./dto/login-user.dto";
+import { createUserDto } from "../dto/create-user.dto";
+import { changeUserPassword } from "../dto/change-user-password.dto";
+import { loginUserDto } from "../dto/login-user.dto";
 
 @Controller('auth')
 export class AuthenticationController {
     @Get('/login')
-    public validateUser(@Body() dto : loginUserDto) {
+    public async validateUser(@Body() dto : loginUserDto) {
         //findbylogin,
         //checkPass
         //if checkPass() then return true else false

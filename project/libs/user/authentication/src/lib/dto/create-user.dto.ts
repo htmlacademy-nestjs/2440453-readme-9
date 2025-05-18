@@ -1,7 +1,7 @@
-export class createUserDto {
+export class CreateUserDto {
     public email: string;
     public password: string;
     public fullName: string;
     public dateOfBirth : Date;
-    public profileImage: File;
+    public profileImage: string;
 }

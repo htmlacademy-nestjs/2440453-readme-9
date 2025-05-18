@@ -3,5 +3,5 @@ export interface User {
     fullName: string;
     email: string;
     dateOfBirth: Date;
-    profileImage: File;
+    profileImage: string;
 }

@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@nestjs/swagger": "^7.3.1",
+    "class-transformer": "^0.5.1",
     "dayjs": "^1.11.13"
   }
 }

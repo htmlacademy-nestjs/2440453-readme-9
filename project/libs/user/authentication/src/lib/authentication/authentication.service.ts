@@ -3,7 +3,7 @@ import { ConflictException } from '@nestjs/common';
 
 import { UserEntity, UserRepository } from '@project/user';
 import { CreateUserDto } from '../dto/create-user.dto';
-import { AuthenticationUserErrors } from './authentication.constant';
+import { AuthenticationUserStatus } from './authentication.constant';
 import { LoginUserDto } from '../dto/login-user.dto';
 import { ChangeUserPasswordDto } from '../dto/change-user-password.dto';
 
@@ -21,7 +21,7 @@ export class AuthenticationService {
         const existUser = await this.userRepository.findByEmail(email);
 
         if (existUser) {
-            throw new ConflictException(AuthenticationUserErrors.UserExist);
+            throw new ConflictException(AuthenticationUserStatus.UserExist);
         }
 
         const userEntity = await new UserEntity(newUser).setPassword(password);
@@ -37,11 +37,11 @@ export class AuthenticationService {
         const user = await this.userRepository.findByEmail(email);
 
         if (! user) {
-            throw new ConflictException(AuthenticationUserErrors.UserNotFound);
+            throw new ConflictException(AuthenticationUserStatus.UserNotFound);
         }
 
         if (! await user.comparePassword(password)) {
-            throw new ConflictException(AuthenticationUserErrors.IncorrectPassword);
+            throw new ConflictException(AuthenticationUserStatus.IncorrectPassword);
         }
 
         return user;
@@ -53,7 +53,7 @@ export class AuthenticationService {
         const user = await this.userRepository.findById(id);
 
         if(! user) {
-            throw new ConflictException(AuthenticationUserErrors.UserNotFound);
+            throw new ConflictException(AuthenticationUserStatus.UserNotFound);
         }
 
         return user;
@@ -66,11 +66,11 @@ export class AuthenticationService {
         const user = await this.userRepository.findByEmail(email);
 
         if (! user) {
-            throw new ConflictException(AuthenticationUserErrors.UserNotFound);
+            throw new ConflictException(AuthenticationUserStatus.UserNotFound);
         }
 
         if (! await user.comparePassword(password)) {
-            throw new ConflictException (AuthenticationUserErrors.IncorrectPassword);
+            throw new ConflictException (AuthenticationUserStatus.IncorrectPassword);
         }
 
         user.setPassword(newPassword);

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "lint": "eslint"
+    "lint": "@project/source@0.0.0 lint"
   },
   "dependencies": {
     "@nestjs/swagger": "^7.3.1",
